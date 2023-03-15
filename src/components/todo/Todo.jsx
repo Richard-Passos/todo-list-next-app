@@ -76,11 +76,12 @@ const reducer = (state, action) => {
         ...state.tasks,
       };
     case "toggle-isCompleted":
+      const task = { ...state.tasks[payload] };
+      state.tasks[payload] = { ...task, isCompleted: !task.isCompleted };
+
       return {
         ...state,
-        tasks: state.tasks.map((task, i) =>
-          i === payload ? { ...task, isCompleted: !task.isCompleted } : task
-        ),
+        ...state.tasks,
       };
     default:
       return state;
