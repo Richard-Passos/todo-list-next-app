@@ -61,9 +61,9 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "add-task":
       if (payload) {
-        state.task.push({ name: payload, isCompleted: false });
+        state.tasks.push({ name: payload, isCompleted: false });
 
-        return state;
+        return { ...state };
       }
 
       return state;
