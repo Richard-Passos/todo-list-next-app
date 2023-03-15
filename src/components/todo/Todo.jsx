@@ -1,56 +1,18 @@
-import { useReducer, useRef } from "react";
+import { useReducer } from "react";
+import { Form } from "../form";
+import { List } from "../list";
 import { Container } from "./Todo.style";
 
 export default function Todo() {
   const [state, dispatch] = useReducer(reducer, { tasks: [] });
-  const input = useRef();
 
   return (
     <Container>
-      <form>
-        <input ref={input} />
+      <Form dispatch={dispatch} />
 
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch({ type: "add-task", payload: input.current.value });
-            input.current.value = "";
-          }}
-        >
-          add
-        </button>
-      </form>
+      <List state={state} dispatch={dispatch} />
 
-      {!state.tasks.length ? (
-        <h2 className="no-tasks">Não há tarefas istadas!</h2>
-      ) : (
-        state.tasks.map((task, i) => (
-          <div key={`key-taskRow-${i}`}>
-            <button
-              onClick={() =>
-                dispatch({ type: "toggle-isCompleted", payload: i })
-              }
-              key={`key-btnToggle-${i}`}
-            >
-              completed
-            </button>
-
-            <p
-              className={task.isCompleted ? "task-completed" : ""}
-              key={`key-taskName-${i}`}
-            >
-              {task.name}
-            </p>
-
-            <button
-              onClick={() => dispatch({ type: "remove-task", payload: i })}
-              key={`key-btnRemove-${i}`}
-            >
-              remove
-            </button>
-          </div>
-        ))
-      )}
+      <p className="d&d-message">Drag and drop to reorder list</p>
     </Container>
   );
 }
