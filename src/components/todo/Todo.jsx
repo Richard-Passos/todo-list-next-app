@@ -66,7 +66,7 @@ const reducer = (state, action) => {
         return { ...state };
       }
 
-      return state;
+      return { ...state };
     case "remove-task":
       state.tasks.splice(payload, 1);
       console.log(state.tasks);
@@ -76,7 +76,7 @@ const reducer = (state, action) => {
       const task = { ...state.tasks[payload] };
       state.tasks[payload] = { ...task, isCompleted: !task.isCompleted };
 
-      return state;
+      return { ...state };
     default:
       return state;
   }
