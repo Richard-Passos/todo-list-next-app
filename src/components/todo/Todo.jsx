@@ -60,29 +60,23 @@ const reducer = (state, action) => {
 
   switch (action.type) {
     case "add-task":
-      if (payload)
-        return {
-          ...state,
-          tasks: [...state.tasks, { name: payload, isCompleted: false }],
-        };
+      if (payload) {
+        state.task.push({ name: payload, isCompleted: false });
+
+        return state;
+      }
 
       return state;
     case "remove-task":
       state.tasks.splice(payload, 1);
       console.log(state.tasks);
 
-      return {
-        ...state,
-        ...state.tasks,
-      };
+      return state;
     case "toggle-isCompleted":
       const task = { ...state.tasks[payload] };
       state.tasks[payload] = { ...task, isCompleted: !task.isCompleted };
 
-      return {
-        ...state,
-        ...state.tasks,
-      };
+      return state;
     default:
       return state;
   }
