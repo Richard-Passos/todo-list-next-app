@@ -3,7 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
-    transition: .5s
+    font-family: inherit;
+    transition: 0.2s;
   }
 
   html {

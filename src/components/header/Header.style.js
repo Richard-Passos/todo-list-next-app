@@ -11,7 +11,7 @@ export const Container = styled.header`
 
   h1 {
     color: #fff;
-    font-size: 4.7em;
-    letter-spacing: 1rem;
+    font-size: 4.5em;
+    letter-spacing: 1.2rem;
   }
 `;

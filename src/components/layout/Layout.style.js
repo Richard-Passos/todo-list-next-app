@@ -3,8 +3,12 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-  background: url(${({ theme }) => theme.bgPath}) no-repeat top / contain
-    ${({ theme }) => theme.colors.secondary};
+  background: url(${({ theme }) => theme.images.mobileBgPath}) no-repeat top /
+    contain ${({ theme }) => theme.colors.bg};
+
+  @media screen and (min-width: 500px) {
+    background-image: url(${({ theme }) => theme.images.bgPath});
+  }
 `;
 
 export const Content = styled.main`

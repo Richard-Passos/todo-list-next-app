@@ -1,4 +1,4 @@
-/* Style */
+/* Components */
 import { Josefin_Sans } from "next/font/google";
 import ResetStyle from "@/styles/reset";
 import GlobalStyle from "@/styles/global";

@@ -1,10 +1,16 @@
-import { useReducer } from "react";
+/* Components */
+import { Container } from "./Todo.style";
 import { Form } from "../form";
 import { List } from "../list";
-import { Container } from "./Todo.style";
 
-export default function Todo() {
-  const [state, dispatch] = useReducer(reducer, { tasks: [] });
+/* Logic */
+import { useReducer } from "react";
+import { setCookie } from "nookies";
+
+export default function Todo({ THEME, TASKS }) {
+  const [state, dispatch] = useReducer(reducer, {
+    tasks: JSON.parse(TASKS) || [],
+  });
 
   return (
     <Container>
@@ -12,7 +18,7 @@ export default function Todo() {
 
       <List state={state} dispatch={dispatch} />
 
-      <p className="d&d-message">Drag and drop to reorder list</p>
+      <p className="dd-message">Drag and drop to reorder list</p>
     </Container>
   );
 }
@@ -25,6 +31,11 @@ const reducer = (state, action) => {
       if (payload) {
         state.tasks.push({ name: payload, isCompleted: false });
 
+        setCookie(null, "TASKS", JSON.stringify([...state.tasks]), {
+          maxAge: 86400 * 7,
+          path: "/",
+        });
+
         return { ...state };
       }
 
@@ -32,12 +43,31 @@ const reducer = (state, action) => {
     case "remove-task":
       state.tasks.splice(payload, 1);
 
+      setCookie(null, "TASKS", JSON.stringify([...state.tasks]), {
+        maxAge: 86400 * 7,
+        path: "/",
+      });
+
       return { ...state };
     case "toggle-isCompleted":
       const task = { ...state.tasks[payload] };
+
       state.tasks[payload] = { ...task, isCompleted: !task.isCompleted };
+      setCookie(null, "TASKS", JSON.stringify([...state.tasks]), {
+        maxAge: 86400 * 7,
+        path: "/",
+      });
 
       return { ...state };
+    case "remove-completedTasks":
+      const notCompletedTasks = state.tasks.filter((task) => !task.isCompleted);
+
+      setCookie(null, "TASKS", JSON.stringify([...state.tasks]), {
+        maxAge: 86400 * 7,
+        path: "/",
+      });
+
+      return { ...state, tasks: notCompletedTasks };
     default:
       return state;
   }

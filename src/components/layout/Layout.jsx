@@ -1,12 +1,13 @@
-/* Style */
+/* Components */
 import light from "@/styles/themes/light";
+import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 import { Container, Content } from "./Layout.style";
 import { Header } from "../header";
 
 /* Logic */
 import { useState } from "react";
-import Head from "next/head";
+import { SetThemeProvider } from "@/context";
 
 export default function Layout({ font, children }) {
   const [theme, setTheme] = useState(light);
@@ -25,7 +26,7 @@ export default function Layout({ font, children }) {
           <Content>
             <Header setTheme={setTheme} theme={theme} />
 
-            {children}
+            <SetThemeProvider setTheme={setTheme}>{children}</SetThemeProvider>
           </Content>
         </Container>
       </ThemeProvider>

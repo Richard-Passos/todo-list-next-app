@@ -1,19 +1,24 @@
 export default {
   title: "dark",
-  iconPath: "/images/icon-sun.svg",
-  bgPath: "/images/bg-desktop-dark.jpg",
+
+  images: {
+    iconPath: "/images/icon-sun.svg",
+
+    bgPath: "/images/bg-desktop-dark.jpg",
+    mobileBgPath: "/images/bg-mobile-dark.jpg",
+  },
 
   colors: {
     primary: `hsl(220, 98%, 61%)`,
-    checkBackground: `linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)`,
-    secondary: `hsl(235, 21%, 11%)`,
-    tertiary: `hsl(235, 24%, 19%)`,
-    lightGrayishBlue: `hsl(234, 39%, 85%)`,
-    lightGrayishBlue_hover: `hsl(236, 33%, 92%)`,
-    darkGrayishBlue: `hsl(234, 11%, 52%)`,
-    veryDarkGrayishBlue: `hsl(233, 14%, 35%)`,
-    /*     veryDarkGrayishBlue: `hsl(237, 14%, 26%)`, */
+    checkBackground: `linear-gradient(-45deg, hsl(280, 87%, 65%) 55%, hsl(192, 100%, 67%) 75%);`,
 
-    test: "#000",
+    bg: `hsl(235, 21%, 11%)`,
+    containerBg: `hsl(235, 24%, 19%)`,
+    text: `hsl(234, 39%, 85%)`,
+
+    dark: `#0b0c0e`,
+    light: `#fbfcfe`,
+    gray: `hsl(234, 11%, 52%)`,
+    shadow: `#0b0c0e`,
   },
 };
