@@ -14,4 +14,8 @@ export const Container = styled.header`
     font-size: 4.5em;
     letter-spacing: 1.2rem;
   }
+
+  & > image:hover {
+    cursor: pointer;
+  }
 `;
