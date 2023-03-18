@@ -31,6 +31,7 @@ export default function List({ state, dispatch }) {
                     dispatch({ type: "toggle-isCompleted", payload: i })
                   }
                   key={`key-taskToggle-${i}`}
+                  checked
                 />
                 <CheckBox key={`key-taskCheckBox-${i}`}>
                   <span className="check"></span>
