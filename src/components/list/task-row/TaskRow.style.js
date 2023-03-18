@@ -1,10 +1,10 @@
 /* Style */
-import { CheckBox } from "./CheckBox-style";
+import { CheckBox } from "../aux-styles/CheckBox-style";
 
 /* Logic */
 import styled from "styled-components";
 
-export const TaskRow = styled.div`
+export const Container = styled.div`
   width: 100%;
   padding: 0.5rem 1rem;
   border-bottom: 0.1rem solid ${({ theme }) => theme.colors.gray};

@@ -24,4 +24,8 @@ export const CList = styled.div`
     color: ${({ theme }) => theme.colors.gray};
     text-decoration: line-through;
   }
+
+  ul {
+    width: 100%;
+  }
 `;

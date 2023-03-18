@@ -1,59 +1,46 @@
 /* Components */
 import { CList } from "./List.style";
-import { Actions, Input, CheckBox, TaskRow } from "./aux-styles";
+import { TaskRow } from "./task-row";
+import { Actions } from "./aux-styles";
 
 /* Logic */
 import { useEffect, useRef, useState } from "react";
+import { useDrag } from "react-dnd";
 
 export default function List({ state, dispatch }) {
+  /* Drag and Drop */
+  const [{ isDragging }, dragRef] = useDrag({
+    type: "TASK_ROW",
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+  /*  */
+
   const [disable, setDisable] = useState(null); // will disable based on task.IsCompleted
   const radioListAll = useRef();
 
   useEffect(() => {
     radioListAll.current.checked = true;
   }, []);
+
   return (
     <CList>
       {!state.tasks.length ? (
         <h2 className="no-tasks">Não há tarefas listadas!</h2>
       ) : (
-        state.tasks.map((task, i) => (
-          <TaskRow
-            className={task.isCompleted === disable ? `disable` : ""}
-            key={`key-taskRow-${i}`}
-          >
-            <label htmlFor={`checkTask-${i}`} key={`key-taskLabel-${i}`}>
-              <div>
-                <Input
-                  type="checkbox"
-                  id={`checkTask-${i}`}
-                  key={`key-taskToggle-${i}`}
-                  onChange={(e) => {
-                    dispatch({ type: "toggle-isCompleted", payload: i });
-                    console.log(e.target);
-                  }}
-                  checked={task.isCompleted}
-                />
-                <CheckBox key={`key-taskCheckBox-${i}`}>
-                  <span className="check"></span>
-                </CheckBox>
-              </div>
-
-              <p
-                className={task.isCompleted ? "task-completed" : ""}
-                key={`key-taskName-${i}`}
-              >
-                {task.name}
-              </p>
-            </label>
-
-            <span
-              className="removeTask"
-              onClick={() => dispatch({ type: "remove-task", payload: i })}
-              key={`key-taskRemove-${i}`}
-            ></span>
-          </TaskRow>
-        ))
+        <ul>
+          {state.tasks.map((task, i) => (
+            <li key={`key-taskRow-${i}`} ref={dragRef} isDragging={isDragging}>
+              <TaskRow
+                task={task}
+                index={i}
+                disable={disable}
+                dispatch={dispatch}
+              />
+            </li>
+          ))}
+        </ul>
       )}
 
       <Actions>
