@@ -27,11 +27,12 @@ export default function List({ state, dispatch }) {
                 <Input
                   type="checkbox"
                   id={`checkTask-${i}`}
-                  onChange={() =>
-                    dispatch({ type: "toggle-isCompleted", payload: i })
-                  }
                   key={`key-taskToggle-${i}`}
-                  checked
+                  onChange={(e) => {
+                    dispatch({ type: "toggle-isCompleted", payload: i });
+                    console.log(e.target);
+                  }}
+                  checked={task.isCompleted}
                 />
                 <CheckBox key={`key-taskCheckBox-${i}`}>
                   <span className="check"></span>
