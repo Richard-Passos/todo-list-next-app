@@ -15,7 +15,7 @@ export const Container = styled.header`
     letter-spacing: 1.2rem;
   }
 
-  & > image:hover {
+  & > img {
     cursor: pointer;
   }
 `;
