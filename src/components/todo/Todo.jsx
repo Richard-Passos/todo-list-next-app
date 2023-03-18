@@ -62,7 +62,7 @@ const reducer = (state, action) => {
     case "remove-completedTasks":
       const notCompletedTasks = state.tasks.filter((task) => !task.isCompleted);
 
-      setCookie(null, "TASKS", JSON.stringify([...state.tasks]), {
+      setCookie(null, "TASKS", JSON.stringify([...notCompletedTasks]), {
         maxAge: 86400 * 7,
         path: "/",
       });
