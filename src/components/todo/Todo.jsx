@@ -18,7 +18,7 @@ export default function Todo({ THEME, TASKS }) {
 
       <List state={state} dispatch={dispatch} />
 
-      <p className="dd-message">Drag and drop to reorder list</p>
+      <p className="DnD-message">Drag and drop to reorder list</p>
     </Container>
   );
 }
@@ -68,6 +68,13 @@ const reducer = (state, action) => {
       });
 
       return { ...state, tasks: notCompletedTasks };
+    case "DragNDrop":
+      setCookie(null, "TASKS", JSON.stringify([...payload]), {
+        maxAge: 86400 * 7,
+        path: "/",
+      });
+
+      return { ...state, tasks: [...payload] };
     default:
       return state;
   }

@@ -6,18 +6,15 @@ import styled from "styled-components";
 
 // C === Container
 export const CForm = styled.form`
-  padding: 1.5rem 3rem;
-  background-color: ${({ theme }) => theme.colors.containerBg};
-  border: none;
-  border-radius: 1rem;
-  box-shadow: ${({ theme }) => theme.colors.shadow} 0 2rem 3rem -1rem;
-
   input {
     width: 100%;
-    background-color: transparent;
+    padding: 2rem 4rem;
+    background-color: ${({ theme }) => theme.colors.containerBg};
     color: ${({ theme }) => theme.colors.text};
     border: none;
+    border-radius: 1rem;
     font-size: 1.6em;
+    box-shadow: ${({ theme }) => theme.colors.shadow} 0 2rem 3rem -1rem;
     caret-color: ${({ theme }) => theme.colors.primary};
 
     ::placeholder {

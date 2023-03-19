@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 2rem;
 
-  .dd-message {
+  .DnD-message {
     margin-top: 10rem;
     color: ${({ theme }) => theme.colors.gray};
     font-size: 1.4em;

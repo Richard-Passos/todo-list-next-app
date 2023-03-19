@@ -5,18 +5,8 @@ import { Actions } from "./aux-styles";
 
 /* Logic */
 import { useEffect, useRef, useState } from "react";
-import { useDrag } from "react-dnd";
 
 export default function List({ state, dispatch }) {
-  /* Drag and Drop */
-  const [{ isDragging }, dragRef] = useDrag({
-    type: "TASK_ROW",
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
-  /*  */
-
   const [disable, setDisable] = useState(null); // will disable based on task.IsCompleted
   const radioListAll = useRef();
 
@@ -31,12 +21,13 @@ export default function List({ state, dispatch }) {
       ) : (
         <ul>
           {state.tasks.map((task, i) => (
-            <li key={`key-taskRow-${i}`} ref={dragRef} isDragging={isDragging}>
+            <li key={`key-taskRow-${i}`}>
               <TaskRow
                 task={task}
                 index={i}
                 disable={disable}
                 dispatch={dispatch}
+                tasks={state.tasks}
               />
             </li>
           ))}

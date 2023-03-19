@@ -13,6 +13,12 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  /* DnD style */
+  &.isDragging {
+    opacity: 0.1;
+  }
+  /*  */
+
   label {
     width: 80%;
     padding: 1rem clamp(1rem, 3vw, 2rem);
@@ -20,6 +26,15 @@ export const Container = styled.div`
     display: flex;
     justify-content: flex-start;
     gap: 2rem;
+
+    /* DnD style */
+    :hover {
+      cursor: grab;
+    }
+    :active {
+      cursor: grabbing;
+    }
+    /*  */
 
     p {
       max-width: 100%;
