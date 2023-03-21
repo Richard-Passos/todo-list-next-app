@@ -18,7 +18,7 @@ export default {
 
     dark: `#0b0c0e`,
     light: `#fbfcfe`,
-    gray: `#9b9c9e`,
+    gray: `hsl(235, 0%, 60%)`,
     shadow: `#0b0c0e`,
   },
 };

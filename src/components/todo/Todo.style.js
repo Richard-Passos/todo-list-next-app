@@ -15,6 +15,13 @@ export const Container = styled.div`
 
     align-self: center;
 
+    .DnD-hamb {
+      font-size: 2em;
+
+      position: relative;
+      top: 0.6rem;
+    }
+
     @media screen and (min-width: 600px) {
       margin-top: 2rem;
     }

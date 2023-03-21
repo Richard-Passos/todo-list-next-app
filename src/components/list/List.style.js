@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 // C === Container
-export const CList = styled.div`
+export const ListContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.containerBg};
   color: ${({ theme }) => theme.colors.text};
   border-radius: 1rem;
@@ -23,9 +23,5 @@ export const CList = styled.div`
   .task-completed {
     color: ${({ theme }) => theme.colors.gray};
     text-decoration: line-through;
-  }
-
-  ul {
-    width: 100%;
   }
 `;

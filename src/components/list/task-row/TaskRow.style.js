@@ -6,8 +6,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.6rem;
+  background-color: ${({ theme }) => theme.colors.containerBg};
   border-bottom: 0.1rem solid ${({ theme }) => theme.colors.gray};
+  border-radius: 1rem;
+  touch-action: none;
 
   display: flex;
   justify-content: space-between;
@@ -17,24 +20,39 @@ export const Container = styled.div`
   &.isDragging {
     opacity: 0.1;
   }
-  /*  */
-
-  label {
-    width: 80%;
-    padding: 1rem clamp(1rem, 3vw, 2rem);
+  &.draggingOver {
+    background-color: red;
+  }
+  .reorder {
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
 
     display: flex;
-    justify-content: flex-start;
-    gap: 2rem;
+    justify-content: center;
+    align-items: center;
 
-    /* DnD style */
+    svg {
+      width: 200%;
+      height: 100%;
+    }
+
     :hover {
       cursor: grab;
     }
     :active {
       cursor: grabbing;
     }
-    /*  */
+  }
+  /*  */
+
+  label {
+    width: 80%;
+    padding: 1rem 1rem;
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
 
     p {
       max-width: 100%;
