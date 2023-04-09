@@ -6,7 +6,7 @@ import { parseCookies } from "nookies";
 import { useContext, useLayoutEffect } from "react";
 import { SetThemeContext } from "@/context";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const cookies = parseCookies(context);
 
   return {
