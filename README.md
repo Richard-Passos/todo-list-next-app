@@ -1,11 +1,7 @@
 <h1 align="center">:file_cabinet: Todo-List</h1>
 
 ## :memo: Descrição
-Desafio pessoal.
-
-Obejetivo era fazer uma todo-list com troca de temas, entre tema claro e tema escuro, e utilizando de drag and drop, 
-também utilizando do hook useReducer para fazer o controle de estado e uso de cookies para salvar as tarefas adicionadas 
-e também salvar o tema
+Desafio pessoal: criei um site para ajudar na organização das tarefas diárias, com a possibilidade de usar o recurso de drag and drop, para uma melhor organização, e troca de temas. Utilizei cookies para salvar as tarefas e o tema escolhido, e também utilizei o useReducer para fazer o controle de estado. O site permite uma gestão mais eficiente das tarefas diárias, tornando mais fácil e prático acompanhar as atividades ao longo do dia.
 
 Ideia e design foram disponibilizados por: Frontend Mentor.
 Site deles: https://www.frontendmentor.io
